@@ -210,7 +210,11 @@ def fetch_tokens():
         # تخزين النتائج في الكاش
         cache.set('responses', responses)
         print(f"Stored {len(responses)} tokens in cache.")  # Debug message
-
+@app.route('/refresh', methods=['POST'])
+def refresh_cache():
+    fetch_tokens()
+    return jsonify({"status": "Cache refreshed"})
+    
 @app.route('/token', methods=['GET'])
 def get_responses():
     # الحصول على النتائج من الكاش
