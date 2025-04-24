@@ -238,4 +238,4 @@ if __name__ == "__main__":
     scheduler_thread.start()
 
     # تشغيل تطبيق Flask
-    app.run(host="0.0.0.0", port=5001)
+    app.run(debug=True)
