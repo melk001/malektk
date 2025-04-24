@@ -220,6 +220,7 @@ def get_responses():
     # الحصول على النتائج من الكاش
     responses = cache.get('responses')
     if responses is None:
+        fetch_tokens()
         print("No data available in cache.")  # Debug message
         return jsonify({"error": "No data available yet"})
     return jsonify({"tokens": responses})  # إرجاع التوكنات في قائمة
