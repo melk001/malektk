@@ -226,16 +226,9 @@ def run_scheduler():
         time.sleep(1)
 
 if __name__ == "__main__":
-    # جدولة المهمة كل 7 ساعات
     schedule.every(7).hours.do(fetch_tokens)
-
-    # تشغيل fetch_tokens فورًا عند بدء التشغيل
     fetch_tokens()
-
-    # تشغيل السكيدولر في ثانوية منفصلة
     scheduler_thread = threading.Thread(target=run_scheduler)
     scheduler_thread.daemon = True
     scheduler_thread.start()
-
-    # تشغيل تطبيق Flask
-    app.run(debug=True)
+    app.run(debug=false)
